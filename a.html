@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>a</title>
+		<script>
+			onload = function(){
+				console.log(localStorage);
+				console.log("清除firstname");
+				localStorage.removeItem("firstname");
+				console.log(localStorage);
+				var btn = document.getElementById("btn");
+				btn.onclick = function(){
+					var msg = document.getElementById("msg");
+					localStorage.setItem("msg",msg.value);
+				}
+				
+				window.addEventListener("storage",function(e){
+					console.log(e);
+				},false);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="msg" />
+		<input type="button" id="btn" value="测试" />
+	</body>
+</html>
